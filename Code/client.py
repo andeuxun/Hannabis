@@ -538,9 +538,7 @@ def display_hand(hand):
                         print(f"{c}   {TEXT_WHITE}{num}{TEXT_BLACK}   ", end="")
             else:
                 c = bg(color_dict[colors[color - 1]])
-                if num == -1 :
-                    print(f"{c}       ", end="")
-                elif i != 2:
+                if num == -1 or i != 2:
                     print(f"{c}       ", end="")
                 else:
                     print(f"{c}   {TEXT_WHITE}{num}{TEXT_BLACK}   ", end="")
@@ -604,9 +602,7 @@ def display_players_hands():
                             print(f"{c}   {TEXT_WHITE}{num}{TEXT_BLACK}   ", end="")
                 else:
                     c = bg(color_dict[colors[color - 1]])
-                    if num == -1 :
-                        print(f"{c}       ", end="")
-                    elif i != 2:
+                    if num == -1 or i != 2:
                         print(f"{c}       ", end="")
                     else:
                         print(f"{c}   {TEXT_WHITE}{num}{TEXT_BLACK}   ", end="")
@@ -633,9 +629,7 @@ def display_players_hands():
                             print(f"{c}   {TEXT_WHITE}{num}{TEXT_BLACK}   ", end="")
                 else:
                     c = bg(color_dict[colors[color - 1]])
-                    if num == -1 :
-                        print(f"{c}       ", end="")
-                    elif i != 2:
+                    if num == -1 or i != 2:
                         print(f"{c}       ", end="")
                     else:
                         print(f"{c}   {TEXT_WHITE}{num}{TEXT_BLACK}   ", end="")
