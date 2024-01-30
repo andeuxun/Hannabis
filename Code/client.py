@@ -144,10 +144,8 @@ def sendClue(joueur, classe, indice):
     """
     paquet_indice={"type":"indice", "joueur":str(joueur), "classe":classe,"indice":indice}
     for player in range (1, numberOfPlayers+1):
-        print(f"{player_num}, {numberOfPlayers}")
         if player!=player_num:
             mqSend(paquet_indice, player)
-            print(f"Sent{paquet_indice} to player {player}")
             time.sleep(2)
     socketSend(paquet_indice)
  
@@ -274,9 +272,7 @@ def mqSend(paquet, id):
         None
     """
     try:
-        #print(f"Sending message via mq: {paquet} to {id}")
         mq.send(pickle.dumps(paquet), type=id)
-        #print(f"Sent msg {paquet} to {id}")
     except Exception as e:
         print(f"Could not send via mq: ",e)
         time.sleep(10)

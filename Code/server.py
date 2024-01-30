@@ -252,7 +252,7 @@ def clueHandle(message):
     print("Received clue:")
     print(message['classe'])
     print(message['indice'], "\n")
-    if message['classe']=='chiffre':
+    if message['classe']=='number':
         count = 0
         for card in main_dict['hands'][message['joueur']]:
             print(card[0])
