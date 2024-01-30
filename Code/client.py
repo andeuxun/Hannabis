@@ -458,7 +458,7 @@ def display_boards(boards):
             for j in range(5):
                 if i == 5:
                     print(f"{VOID_STYLE}   {j + 1}   ", end="")
-                elif first_board[i1] == 1:
+                elif first_board[j] == 1:
                     c = bg(colors[i1])
                     print(f"{c}       ", end="")
                 else:
@@ -476,7 +476,7 @@ def display_boards(boards):
             for j in range(5):
                 if i == 5:
                     print(f"{VOID_STYLE}   {j + 1}   ", end="")
-                elif first_board[i2] == 1:
+                elif second_board[j] == 1:
                     c = bg(colors[i2])
                     print(f"{c}       ", end="")
                 else:
@@ -497,7 +497,7 @@ def display_boards(boards):
             for j in range(5):
                 if i == 5:
                     print(f"{VOID_STYLE}   {j + 1}   ", end="")
-                elif first_board[k] == 1:
+                elif board[j] == 1:
                     c = bg(colors[k])
                     print(f"{c}       ", end="")
                 else:
@@ -529,9 +529,15 @@ def display_hand(hand):
                 print(f"{VOID_STYLE}   {j + 1}   ", end="")
             elif color < 1:
                 c = bg(color_dict['gray'])
-                print(f"{c}       ", end="")
+                if num == -1 :
+                    print(f"{c}       ", end="")
+                else :
+                    if i != 2:
+                        print(f"{c}       ", end="")
+                    else:
+                        print(f"{c}   {TEXT_WHITE}{num}{TEXT_BLACK}   ", end="")
             else:
-                c = bg(color_dict[colors[color - 1]])
+                c = bg(color_dict[colors[color]])
                 if i != 2:
                     print(f"{c}       ", end="")
                 else:
@@ -569,7 +575,6 @@ def display_players_hands():
                 num = i 
         if card[0][num - 1] == card[0][num] :
             num = -1
-            
         your_hand.append((num,color))
 
     all_hands[player_num - 1] = (your_hand, "Your hand :")
@@ -596,7 +601,7 @@ def display_players_hands():
                         else:
                             print(f"{c}   {TEXT_WHITE}{num}{TEXT_BLACK}   ", end="")
                 else:
-                    c = bg(color_dict[colors[color - 1]])
+                    c = bg(color_dict[colors[color]])
                     if i != 2:
                         print(f"{c}       ", end="")
                     else:
@@ -615,9 +620,15 @@ def display_players_hands():
                     print(f"{VOID_STYLE}   {j + 1}   ", end="")
                 elif color < 1:
                     c = bg(color_dict['gray'])
-                    print(f"{c}       ", end="")
+                    if num == -1 :
+                        print(f"{c}       ", end="")
+                    else :
+                        if i != 2:
+                            print(f"{c}       ", end="")
+                        else:
+                            print(f"{c}   {TEXT_WHITE}{num}{TEXT_BLACK}   ", end="")
                 else:
-                    c = bg(color_dict[colors[color - 1]])
+                    c = bg(color_dict[colors[color]])
                     if i != 2:
                         print(f"{c}       ", end="")
                     else:
