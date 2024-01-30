@@ -538,7 +538,9 @@ def display_hand(hand):
                         print(f"{c}   {TEXT_WHITE}{num}{TEXT_BLACK}   ", end="")
             else:
                 c = bg(color_dict[colors[color - 1]])
-                if i != 2:
+                if num == -1 :
+                    print(f"{c}       ", end="")
+                elif i != 2:
                     print(f"{c}       ", end="")
                 else:
                     print(f"{c}   {TEXT_WHITE}{num}{TEXT_BLACK}   ", end="")
@@ -566,8 +568,8 @@ def display_players_hands():
     all_hands = [([],"")] * numberOfPlayers
     your_hand = []
     for card in infos_tour['infos_decks'][str(player_num)]:
-        color = card[1].index(1)
-        if color == 0 and card[1][1] == 1 :
+        color = card[1].index(1) + 1
+        if color == 1 and card[1][1] == 1 :
             color = -1
         num = -1
         for i in card[0] :
@@ -602,7 +604,9 @@ def display_players_hands():
                             print(f"{c}   {TEXT_WHITE}{num}{TEXT_BLACK}   ", end="")
                 else:
                     c = bg(color_dict[colors[color - 1]])
-                    if i != 2:
+                    if num == -1 :
+                        print(f"{c}       ", end="")
+                    elif i != 2:
                         print(f"{c}       ", end="")
                     else:
                         print(f"{c}   {TEXT_WHITE}{num}{TEXT_BLACK}   ", end="")
@@ -629,7 +633,9 @@ def display_players_hands():
                             print(f"{c}   {TEXT_WHITE}{num}{TEXT_BLACK}   ", end="")
                 else:
                     c = bg(color_dict[colors[color - 1]])
-                    if i != 2:
+                    if num == -1 :
+                        print(f"{c}       ", end="")
+                    elif i != 2:
                         print(f"{c}       ", end="")
                     else:
                         print(f"{c}   {TEXT_WHITE}{num}{TEXT_BLACK}   ", end="")
