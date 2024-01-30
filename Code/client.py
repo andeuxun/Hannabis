@@ -13,7 +13,7 @@ from art import *
 global playing
 
 color_dict = {
-    "blue": 23,
+    "blue": 21,
     "red": 124,
     "green": 106,
     "orange": 215,
@@ -537,7 +537,7 @@ def display_hand(hand):
                     else:
                         print(f"{c}   {TEXT_WHITE}{num}{TEXT_BLACK}   ", end="")
             else:
-                c = bg(color_dict[colors[color]])
+                c = bg(color_dict[colors[color - 1]])
                 if i != 2:
                     print(f"{c}       ", end="")
                 else:
@@ -601,7 +601,7 @@ def display_players_hands():
                         else:
                             print(f"{c}   {TEXT_WHITE}{num}{TEXT_BLACK}   ", end="")
                 else:
-                    c = bg(color_dict[colors[color]])
+                    c = bg(color_dict[colors[color - 1]])
                     if i != 2:
                         print(f"{c}       ", end="")
                     else:
@@ -628,7 +628,7 @@ def display_players_hands():
                         else:
                             print(f"{c}   {TEXT_WHITE}{num}{TEXT_BLACK}   ", end="")
                 else:
-                    c = bg(color_dict[colors[color]])
+                    c = bg(color_dict[colors[color - 1]])
                     if i != 2:
                         print(f"{c}       ", end="")
                     else:
