@@ -8,12 +8,9 @@ from multiprocessing import Process, Manager, Pipe
 import time
 import sysv_ipc
 
- 
- 
 global serve
 serve = True
 
- 
 def handler(sig, frame):
     """
     This function handles signals. 
@@ -81,7 +78,6 @@ def pick_card():
                 socketSend(socket,{"EOG":True,"Reason_EOG":"Deck is empty."})    
             return "EOG"
     
- 
 def hideHands(numberOfPlayers):
     """
     Generates the hands that will be shown to the players by 
@@ -102,7 +98,6 @@ def hideHands(numberOfPlayers):
         hands_infos[str(j)]=player_hand_info
     return hands_infos
  
-
 def deckStartup(numberOfPlayers):
     """
     Generates the deck that will be used throughout the game.
@@ -128,7 +123,6 @@ def deckStartup(numberOfPlayers):
     except Exception as e:
         print(f"There was a problem in deckStartup(): ",e)
         return -1
-
 
 def handsStartup(numberOfPlayers):
     """
@@ -235,7 +229,6 @@ def changeTurns():
     else:
         main_dict["turn"]+=1
 
-
 def clueHandle(message):
     """
     Processes and updates game information based on the clue received from a player.
@@ -324,8 +317,6 @@ def receptioncard(message):
             return(1)
         return(0)
  
- 
- 
 def playerHandler(socket, address, player_num):
     """
     Handles communication with a connected player during the game.
@@ -392,7 +383,6 @@ def playerHandler(socket, address, player_num):
                     time.sleep(1)
         return 0
  
- 
 def socketSend(socket, paquet):
     """
     This function sends a message to a socket using pickle.
@@ -414,7 +404,6 @@ def socketReceive(socket):
     """
     paquet=socket.recv(1024)
     return(pickle.loads(paquet))
- 
  
 if __name__ == '__main__':
     running_processes = []

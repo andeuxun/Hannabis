@@ -2,8 +2,6 @@
 import socket
 import sysv_ipc
 import time
-from multiprocessing import Process, Manager, Pipe
-import json
 import pickle
 import sys
 import os
@@ -38,7 +36,6 @@ TEXT_WHITE = fg("white") + attr("bold")
 TEXT_BLACK = fg("black")
 
 print(f"{VOID_STYLE}")
-
 
 def cardInput():
     """
@@ -322,6 +319,7 @@ def print_in_center_top(text):
     for line in text:
         horizontal_padding = (int(columns) - len(line)) // 2
         print(' ' * horizontal_padding + line)
+    print()
 
 def print_in_center_top_two(text1, text2):
     """
@@ -416,7 +414,7 @@ def display_static_info():
         None
     """
     left = f"You are Player {text2art(str(player_num), font='contouring1')}  with {numberOfPlayers - 1} other mates!"
-    right = f"Access Key: {cle}"
+    right = f"Address : {HOST}:{str(PORT)}"
     _, columns = os.popen('stty size', 'r').read().split()
     padding = (int(columns) - len(left) - len(right))
 
@@ -455,7 +453,7 @@ def display_boards(boards):
                 if i == 5:
                     print(f"{VOID_STYLE}   {j + 1}   ", end="")
                 elif first_board[j] == 1:
-                    c = bg(colors[i1])
+                    c = bg(color_dict[colors[i1]])
                     print(f"{c}       ", end="")
                 else:
                     c = bg(color_dict['gray'])
@@ -473,7 +471,7 @@ def display_boards(boards):
                 if i == 5:
                     print(f"{VOID_STYLE}   {j + 1}   ", end="")
                 elif second_board[j] == 1:
-                    c = bg(colors[i2])
+                    c = bg(color_dict[colors[i2]])
                     print(f"{c}       ", end="")
                 else:
                     c = bg(color_dict['gray'])
@@ -494,7 +492,7 @@ def display_boards(boards):
                 if i == 5:
                     print(f"{VOID_STYLE}   {j + 1}   ", end="")
                 elif board[j] == 1:
-                    c = bg(colors[k])
+                    c = bg(color_dict[colors[k]])
                     print(f"{c}       ", end="")
                 else:
                     c = bg(color_dict['gray'])
